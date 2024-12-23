@@ -1,0 +1,44 @@
+server:
+  profiles:
+    active: default
+  port: 8081
+  servlet:
+    context-path: /example/tech
+spring:
+  security:
+    user:
+      name: sa
+      password: sa123
+  application:
+    name: reto-tecnico-api
+  datasource:
+    type: com.zaxxer.hikari.HikariDataSource
+    driverClassName: org.h2.Driver
+    url: 'jdbc:h2:mem:testdb'
+    username: sa
+    password: password
+    initialization-mode: always
+    hikari:
+      minimunIdle: 5
+      maximumPoolSize: 10
+      connectionTimeout: 20000
+      idleTimeout: 60000
+      maxLifetime: 1800000
+  sql:
+    init:
+      mode: always
+  h2:
+    console:
+      enabled: true
+      path: /h2-console
+  jpa:
+    show-sql: true
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.H2Dialect
+    hibernate:
+      ddl-auto: update
+
+logging:
+  level:
+    org.springframework.security: DEBUG
